@@ -24,9 +24,9 @@ function App() {
         <Route path="/member/login" element={<Login />} />
         <Route path="/member/signup" element={<Signup />} />
         <Route path="/trip" element={<TripAdd />} />
-        <Route path="/tripDetail/{tripId}" element={<TripDetail />} />
-        <Route path="/dayDetail/{dayId}" element={<DayDetail />} />
-        <Route path="/cost/{dayId}" element={<CostAdd />} />
+        <Route path="/tripDetail" element={<TripDetail />} />
+        <Route path="/dayDetail" element={<DayDetail />} />
+        <Route path="/cost" element={<CostAdd />} />
         {/* <Route path="/cost/{dayId}" element={<Calculator />} /> */}
         <Route path="*" element={<div>404 error 없는페이지입니다</div>} />
       </Routes>
