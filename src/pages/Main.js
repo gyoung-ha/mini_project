@@ -1,14 +1,15 @@
 import React from 'react'
+import Layout from "../components/Layout";
 import styled from 'styled-components'
-import Layout from '../components/Layout'
 import { useNavigate } from "react-router-dom";
-
 
 
 const Main = () => {
   const nagivate = useNavigate();
+  
   return (
     <Layout>
+      <div>여행리스트</div>
       <Container>
         <BoxStyle className="Mainbox" onClick={() => {nagivate("/tripDetail")}}>
           <div>title</div>
