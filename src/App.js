@@ -2,7 +2,7 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 // import { Helmet } from "react-helmet-async";
 
-import Header from "./components/Header";
+
 import Main from "./pages/Main";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -18,7 +18,7 @@ function App() {
     {/* <Helmet>
         <title>여행가게✈️</title>
     </Helmet> */}
-    <Header/>
+    
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />

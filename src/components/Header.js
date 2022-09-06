@@ -7,8 +7,6 @@ const Header = () => {
   const nagivate = useNavigate();
   return (
     <HdContainer>
-      <HdButton>여행가계</HdButton>
-      <button>Logout</button>
       <HdButton onClick={() => {nagivate("/")}}>여행가계</HdButton>
       <button onClick={() => {nagivate("/member/login")}}>Logout</button>
     </HdContainer>
