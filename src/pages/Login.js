@@ -1,8 +1,12 @@
 import React from 'react'
+import FormLogin from '../components/FormLogin'
+import Layout from '../components/Layout'
 
 const Login = () => {
   return (
-    <div>로그인</div>
+    <Layout>
+      <FormLogin/>
+    </Layout>
   )
 }
 

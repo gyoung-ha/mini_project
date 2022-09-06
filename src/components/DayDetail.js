@@ -6,4 +6,4 @@ const DayDetail = () => {
   )
 }
 
-export default DayDetail
+export default DayDetail;

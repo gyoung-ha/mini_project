@@ -18,11 +18,11 @@ function App() {
     {/* <Helmet>
         <title>여행가게✈️</title>
     </Helmet> */}
-    <Header />
+    <Header/>
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/member/login" element={<Login />} />
-        <Route path="/member/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/trip" element={<TripAdd />} />
         <Route path="/tripDetail" element={<TripDetail />} />
         <Route path="/dayDetail" element={<DayDetail />} />

@@ -8,6 +8,13 @@ const TripDetail = () => {
       <Container>
       <div>title</div>
       <div>기간</div>
+      <div>여행설명</div>
+      </Container>
+      <Container>
+      <div>총 지출 금액</div>
+      </Container>
+      <Container>
+      <div>day1</div>
       </Container>
     </Layout> 
   )
