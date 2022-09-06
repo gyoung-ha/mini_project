@@ -1,14 +1,19 @@
 import React from 'react'
+<<<<<<< HEAD
 import styled from 'styled-components'
 import Layout from '../components/Layout'
 import { useNavigate } from "react-router-dom";
 
 
+=======
+import Layout from "../components/Layout";
+>>>>>>> 332fc763f79a6c79effb3cf449cfccf11de6b301
 
 const Main = () => {
   const nagivate = useNavigate();
   return (
     <Layout>
+<<<<<<< HEAD
       <Container>
         <BoxStyle className="Mainbox" onClick={() => {nagivate("/tripDetail")}}>
           <div>title</div>
@@ -16,6 +21,10 @@ const Main = () => {
         </BoxStyle>
       </Container>
     </Layout> 
+=======
+      <div>여행리스트</div>
+    </Layout>
+>>>>>>> 332fc763f79a6c79effb3cf449cfccf11de6b301
   )
 }
 
