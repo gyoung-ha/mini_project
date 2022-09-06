@@ -1,11 +1,14 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+const API_URL = 'http://3.39.254.156/';
+
 export const __getCosts = createAsyncThunk(
     "costs/getCosts",
     async (payload, thunkAPI) => {
         try {
-            const {data} =  await axios.get("");
+            const {data} =  await axios.get(`${API_URL}/costs`, payload);
+            console.log(payload)
             return thunkAPI.fulfillWithValue(data);
           } catch (error) {
             return thunkAPI.rejectWithValue(error);
@@ -47,4 +50,4 @@ export const costs = createSlice({
 
 export const { createCost, removeCost } = costs.actions;
 
-export default costs;
+export default costs.reducer;

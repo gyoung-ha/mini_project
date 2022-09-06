@@ -6,9 +6,9 @@ const API_URL = 'http://3.39.254.156';
 //회원가입
 export const __SignUp = createAsyncThunk(
     "member/signup", 
-    async (SignupData, thunkAPI) => {
+    async (payload, thunkAPI) => { 
         try {
-            const data = await axios.post(`${API_URL}/member/signup`, SignupData);
+            const data = await axios.post(`${API_URL}/members/signup`, payload);
             console.log(data)
             return thunkAPI.fulfillWithValue(data.data);
         } catch (error) {
@@ -24,7 +24,7 @@ export const __Login = createAsyncThunk(
   "member/login", 
   async (payload, thunkAPI) => {
       try {
-          const data = await axios.post(`${API_URL}/member/login`, payload);
+          const data = await axios.post(`${API_URL}/members/login`, payload);
           localStorage.setItem("token", data.headers.authorization)
           // console.log(data)
           return thunkAPI.fulfillWithValue(data.data);
@@ -46,30 +46,30 @@ export const member = createSlice({
     isloading: false 
   },
   reducers: {},
-  extraReducers: {
-    [__SignUp.pending]: (state) => {
-      state.isLoading = true;
-    },
-    [__SignUp.fulfilled]: (state, action) => {
-      state.isLoading = false;
-      state.data = action.payload;
-    },
-    [__SignUp.rejected]: (state, action) => {
-      state.isLoading = false;
-      state.error = action.payload;
-    },
-    [__Login.pending]: (state) => {
-      state.isLoading = true; 
-    },
-    [__Login.fulfilled]: (state, action) => {
-      state.isLoading = false; 
-      state.data = action.payload; 
-    },
-    [__Login.rejected]: (state, action) => {
-      state.isLoading = false; 
-      state.error = action.payload; 
-    }
-  },
+  // extraReducers: {
+  //   [__SignUp.pending]: (state) => {
+  //     state.isLoading = true;
+  //   },
+  //   [__SignUp.fulfilled]: (state, action) => {
+  //     state.isLoading = false;
+  //     state.data = action.payload;
+  //   },
+  //   [__SignUp.rejected]: (state, action) => {
+  //     state.isLoading = false;
+  //     state.error = action.payload;
+  //   },
+  //   [__Login.pending]: (state) => {
+  //     state.isLoading = true; 
+  //   },
+  //   [__Login.fulfilled]: (state, action) => {
+  //     state.isLoading = false; 
+  //     state.data = action.payload; 
+  //   },
+  //   [__Login.rejected]: (state, action) => {
+  //     state.isLoading = false; 
+  //     state.error = action.payload; 
+  //   }
+  // },
 });
 
 export default member.reducer;

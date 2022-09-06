@@ -1,10 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import member from "../modules/member";
+import costs from "../modules/cost"
 
 
 const store = configureStore({
     reducer: {
-        member: member
+        member, costs
     }
     
 });

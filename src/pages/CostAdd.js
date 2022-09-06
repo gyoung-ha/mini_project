@@ -18,15 +18,16 @@ const CostAdd = () => {
   const [content, setcontent] = useState();
   const [pay, setpay] = useState();
   
+  const costDb = {
+    content: content,
+    pay: pay,
+  }
 
   const submit = (event) => {
     event.preventDefault();
     if (content.trim() === "" || pay.trim() === "") return alert('항목을 입력하세요.'); 
     
-    dispatch(createCost({
-        content: content,
-        pay: pay,
-      }))
+    dispatch(createCost(costDb))
       navigate("/tripDetail")
   }
 

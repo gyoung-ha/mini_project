@@ -16,7 +16,7 @@ const StButton = styled.button`
   ${flex({})};
   border: 0px solid #C7F9CC;
   background-color: #FF8600;
-  height: 46px;
+  height: 40px;
   border-radius: 5px;
   color: white;
   font-weight: 600;
