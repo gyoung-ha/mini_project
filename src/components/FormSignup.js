@@ -15,7 +15,6 @@ const FormSignup = () => {
     const [passwordConfirm, setPasswordConfirm] = useState();
 
     const SignupData = {
-        id: 1,
         userId: userId,
         password: password,
         passwordConfirm: passwordConfirm,

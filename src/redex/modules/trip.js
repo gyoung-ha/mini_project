@@ -5,7 +5,7 @@ export const __getTrips = createAsyncThunk(
     "trips/getTrips",
     async (payload, thunkAPI) => {
         try {
-            const {data} =  await axios.get("");
+            const { data } =  await axios.get("http://localhost:3001/trips", payload);
             return thunkAPI.fulfillWithValue(data);
           } catch (error) {
             return thunkAPI.rejectWithValue(error);
@@ -23,7 +23,7 @@ export const trips = createSlice({
     reducers:{
         createTrip(state, action){
           state.trips.push(action.payload);
-          axios.post("", action.payload );
+          axios.post("http://localhost:3001/trips", action.payload );
         },
         removeTrip(state, action){
           const  index = state.trips.findIndex(trip =>  trip.id === action.payload);

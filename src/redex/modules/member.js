@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// const API_URL = 'http://3.39.254.156';
-  const JSON_URL = 'http://localhost:3001/members';
+const API_URL = 'http://3.39.254.156';
+  // const JSON_URL = 'http://localhost:3001/members';
 
 //회원가입
 export const __SignUp = createAsyncThunk(
@@ -10,10 +10,10 @@ export const __SignUp = createAsyncThunk(
     async (payload, thunkAPI) => { 
         try {
             console.log(payload)
-            const data = await axios.post(`${JSON_URL}`, JSON.stringify(payload))
+            const data = await axios.post(`${API_URL}/member/signup`, payload)
             return thunkAPI.fulfillWithValue(data.data);
         } catch (error) {
-          if (error.response.data.ok === false) {
+          if (error.response.data.success === false) {
             alert(`${error.response.data.errorMessage}`);
           }
           return thunkAPI.rejectWithValue(error);
@@ -25,13 +25,13 @@ export const __Login = createAsyncThunk(
   "member/login", 
   async (payload, thunkAPI) => {
       try {
-          const data = await axios.post(`${JSON_URL}`, payload);
+          const data = await axios.post(`${API_URL}/member/login`, payload);
           localStorage.setItem("token", data.headers.authorization)
           // console.log(data)
           return thunkAPI.fulfillWithValue(data.data);
       } catch (error) {
-        if (error.response.data.ok === false) {
-          alert(`${error.response.data.errorMessage}`);
+        if (error.response.success === false) {
+          alert(`${error.response.errorMessage}`);
         }
         return thunkAPI.rejectWithValue(error);
       }
