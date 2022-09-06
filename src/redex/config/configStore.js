@@ -4,9 +4,11 @@ import costs from "../modules/cost"
 
 
 const store = configureStore({
-    reducer: {
-        member, costs
-    }
+    reducer: { member, costs },
+        
+    middleware: (getDefaultMiddleware) => 
+    getDefaultMiddleware({ serializableCheck: false, }),
+    
     
 });
 
