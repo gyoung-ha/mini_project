@@ -7,13 +7,14 @@ const API_URL = 'http://3.39.254.156';
 //회원가입
 export const __SignUp = createAsyncThunk(
     "member/signup", 
-    async ({payload, navigate}, thunkAPI) => { 
+    async (payload, thunkAPI) => { 
         try {
+            console.log(payload)
             const data = await axios.post(`${API_URL}/member/signup`, payload)
             console.log(data.data)
-            if(data.data.success === true)
-              alert(data.data.data)
-              navigate('/login')
+            if(data.data.success === false)
+              alert(data.data.error.message)
+              else alert(data.data.data)
             return thunkAPI.fulfillWithValue(data.data);
         } catch (error) {
           return thunkAPI.rejectWithValue(error);
@@ -23,19 +24,20 @@ export const __SignUp = createAsyncThunk(
 //로그인
 export const __Login = createAsyncThunk(
   "member/login", 
-  async ({payload, navigate}, thunkAPI) => {
+  async (payload, thunkAPI) => {
       try {
           const data = await axios.post(`${API_URL}/member/login`, payload)
-          // localStorage.setItem("accessToken",data.headers.authorization)
-          // localStorage.setItem("Refresh-Token",data.headers.authorization)
+          localStorage.setItem("Token", data.headers.authorization)
+          localStorage.setItem("RefreshToken", data.headers.refreshtoken)
           //콘솔에 찍어보기
           console.log(data)
+          console.log(localStorage)
+          if(data.data.success === false)
+              alert(data.data.data)
+              else alert(data.data.data)
           // navigate("/")
           return thunkAPI.fulfillWithValue(data.data);
       } catch (error) {
-        if (error.response.success === false) {
-          alert(`${error.response.errorMessage}`);
-        }
         return thunkAPI.rejectWithValue(error);
       }
 });
