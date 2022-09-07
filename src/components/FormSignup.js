@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react"
 import { useDispatch } from "react-redux";
 import { __SignUp } from "../redex/modules/member";
+import { useNavigate } from 'react-router-dom';
 import Input from "../elem/Input"
 import Button from "../elem/Button"
 
@@ -9,6 +10,7 @@ import Button from "../elem/Button"
 const FormSignup = () => {
  
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [userId, setUserId] = useState();
     const [password, setPassword] = useState();
@@ -25,7 +27,7 @@ const FormSignup = () => {
         window.alert("항목을 모두 입력하세요.");
         return;
     } 
-        dispatch(__SignUp(SignupData));
+        dispatch(__SignUp(SignupData, navigate));
     }
 
     const handleKeyPress = e => {
