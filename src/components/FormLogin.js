@@ -36,7 +36,6 @@ const FormLogin = () => {
     };
 
   return (
-    <form style={{ display: 'flex', alignItems: 'center' }}>
     <LoginBox>
     <StTitle>Login</StTitle>
     <IpBox>
@@ -51,8 +50,8 @@ const FormLogin = () => {
     onChange={(e) => setPassword(e.target.value)}></Input>
     </IpBox>
     <Button onClick={Login}>로그인</Button>
+    <Button onClick={() => {navigate('/signup')}}>회원가입</Button>
     </LoginBox>
-    </form>
 )};
 
 export default FormLogin;

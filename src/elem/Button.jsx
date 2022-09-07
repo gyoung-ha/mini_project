@@ -18,7 +18,7 @@ const StButton = styled.button`
   background-color: #FF8600;
   height: 40px;
   border-radius: 5px;
-  margin: 10px 0 10px 0;
+  margin: 5px 0 5px 0;
   color: white;
   font-weight: 600;
   font-weight: ${({ fw }) => fw};
