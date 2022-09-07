@@ -47,7 +47,7 @@ const StButton = styled.button`
         `;
       default:
         return css`
-          width: 140px;
+          width: 20%;
         `;
     }
   }}

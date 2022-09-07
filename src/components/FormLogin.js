@@ -51,7 +51,7 @@ const FormLogin = () => {
     onChange={(e) => setPassword(e.target.value)}></Input>
     </IpBox>
     <Button onClick={Login}>로그인</Button>
-    <Button onClick={() => {navigate('/signup')}}>회원가입</Button>
+    <Button bgColor="#758BFD" onClick={() => {navigate('/signup')}}>회원가입 페이지로 이동</Button>
     </LoginBox>
 )};
 
@@ -73,7 +73,7 @@ const LoginBox = styled.div`
 
 `
 const IpBox = styled.div`
-    width : 60%;
+    width : 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
