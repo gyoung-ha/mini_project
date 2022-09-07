@@ -5,7 +5,7 @@ import "./style.css";
 import Header from "../components/Header";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { createTrip } from "../redex/modules/trip"
+import { __AddTrip } from "../redex/modules/trip"
 import Input from "../elem/Input"
 import Button from "../elem/Button"
 
@@ -18,18 +18,23 @@ const TripAdd = () => {
   const [tripEnd, settripEnd] = useState("");
   const [content, setcontent] = useState("");
   const [days, setdays] = useState("");
-  
-  const submit = () => {
-        
-    if (title ==="" || tripStart ==="" || tripEnd ==="" || content ==="" ) return       // 빈칸있을시 등록버튼 눌러도 실행x
 
-    dispatch(createTrip({    
-     title: title,
-     content: content,
-     tripStart: tripStart,
-     tripEnd: tripEnd,
-     days: days
-    }))
+  const TripData = {
+    title: title,
+    content: content,
+    tripStart: tripStart,
+    tripEnd: tripEnd,
+    days: days,
+  }
+  
+  const AddTrip = () => {
+        
+    if (title ==="" || tripStart ==="" || tripEnd ==="" || content ==="" ) {
+      window.alert("항목을 모두 입력하세요.");
+      return;
+  } 
+
+    dispatch(__AddTrip(TripData));
 
     navigate("/")
     
@@ -83,7 +88,7 @@ const TripAdd = () => {
         </div>
 
         <div>
-          <button className="Addbtn" onClick={submit}> 등록 </button>
+          <button className="Addbtn" onClick={AddTrip}> 등록 </button>
         </div>
 
          
