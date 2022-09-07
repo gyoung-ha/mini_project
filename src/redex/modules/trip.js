@@ -7,8 +7,15 @@ export const __getTripList = createAsyncThunk(
     "trip/tripList",
     async (payload, thunkAPI) => {
         try {
-            const { data } =  await axios.get(`${API_URL}/`, payload);
-            return thunkAPI.fulfillWithValue(data);
+            
+            const data =  await axios.get(`${API_URL}/trip`, {
+              headers: {
+                Authorization: localStorage.getItem("Token"),
+                RefreshToken: localStorage.getItem("RefreshToken")
+            } 
+            });
+            console.log(data)
+            return thunkAPI.fulfillWithValue(data.data);
           } catch (error) {
             return thunkAPI.rejectWithValue(error);
           }
@@ -16,7 +23,7 @@ export const __getTripList = createAsyncThunk(
   );
 
 const initialState = {  
-    data: [],
+    trips: [],
     isLoading: false,
     error: null,  
   };
@@ -26,12 +33,12 @@ export const trip = createSlice({
     initialState,
     reducers:{
         createTrip(state, action){
-          state.data.push(action.payload);
+          state.trips.push(action.payload);
           axios.post(`${API_URL}/trip`, action.payload );
         },
         removeTrip(state, action){
-          const  index = state.data.findIndex(data =>  data.id === action.payload);
-			    state.data.splice(index,1);
+          const  index = state.data.findIndex(trips =>  trips.data.id === action.payload);
+			    state.trips.splice(index,1);
           axios.delete(`${API_URL}/trip/${action.payload}`);
         }
     },

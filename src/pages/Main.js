@@ -3,21 +3,22 @@ import Layout from "../components/Layout";
 import styled from 'styled-components'
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
+import TripList from '../components/TripList';
 
 
 const Main = () => {
-  const nagivate = useNavigate();
+  const navigate = useNavigate();
   
   return ( 
     <>
   <Header/>
     <Layout>
-      <div>여행리스트</div>
       <Container>
-        <BoxStyle className="Mainbox" onClick={() => {nagivate("/tripDetail")}}>
+        <TripList/>
+        {/* <BoxStyle className="Mainbox" onClick={() => {navigate("/tripDetail")}}>
           <div>title</div>
           <div>기간</div>
-        </BoxStyle>
+        </BoxStyle> */}
       </Container>
     </Layout>
     </>

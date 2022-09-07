@@ -4,6 +4,11 @@ import Layout from '../components/Layout'
 import Header from "../components/Header";
 
 const TripDetail = () => {
+
+  // const trips = useSelector((state) => state.trip);
+  // const { id } = useParams();
+  // const Idex = trips.find(function (x) { return x.id == id })
+
   return (
     <>
     <Header/>

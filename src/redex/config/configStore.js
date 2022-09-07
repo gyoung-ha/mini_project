@@ -5,7 +5,11 @@ import trip from "../modules/trip";
 
 
 const store = configureStore({
-    reducer: { member, costs, trip },
+    reducer: { 
+        member, 
+        costs, 
+        trip: trip.reducer 
+    },
         
     middleware: (getDefaultMiddleware) => 
     getDefaultMiddleware({ serializableCheck: false, }),

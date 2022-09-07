@@ -25,7 +25,8 @@ const FormLogin = () => {
         window.alert("항목을 모두 입력하세요.");
         return;
     } 
-        dispatch(__Login(LoginData, navigate));
+        dispatch(__Login(LoginData));
+        navigate("/")
 
     }
 

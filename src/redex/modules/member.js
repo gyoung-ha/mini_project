@@ -31,9 +31,9 @@ export const __Login = createAsyncThunk(
           localStorage.setItem("RefreshToken", data.headers.refreshtoken)
           //콘솔에 찍어보기
           console.log(data)
-          console.log(localStorage)
+          // console.log(localStorage)
           if(data.data.success === false)
-              alert(data.data.data)
+              alert(data.data.error.message)
               else alert(data.data.data)
           // navigate("/")
           return thunkAPI.fulfillWithValue(data.data);
@@ -41,6 +41,23 @@ export const __Login = createAsyncThunk(
         return thunkAPI.rejectWithValue(error);
       }
 });
+
+//로그아웃
+export const __Logout = createAsyncThunk(
+  "member/logout",
+  async (payload, thunkAPI) => {
+      try {
+          const data =  await axios.get(`${API_URL}/member/logout`, {
+            headers: {
+                Authorization: localStorage.getItem("Token"),
+                RefreshToken: localStorage.getItem("RefreshToken"),
+          }})
+          // return thunkAPI.fulfillWithValue(data.data);
+        } catch (error) {
+          // return thunkAPI.rejectWithValue(error);
+        }
+  }
+);
 
 
 export const member = createSlice({
@@ -51,7 +68,13 @@ export const member = createSlice({
     error: null,
     isloading: false 
   },
-  reducers: {},
+  reducers: {  
+    logout(state){
+    localStorage.removeItem("Token")
+    localStorage.removeItem("RefreshToken")
+  }
+
+  },
   // extraReducers: {
   //   [__SignUp.pending]: (state) => {
   //     state.isLoading = true;
@@ -77,5 +100,6 @@ export const member = createSlice({
   //   }
   // },
 });
+export const { logout } = member.actions;
 
 export default member.reducer;
