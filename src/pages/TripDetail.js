@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { __getTripDetail } from '../redex/modules/tripdetail';
 import DayDetail from '../components/DayDetail';
-// import DayList from '../components/DayList';
+import DayList from '../components/DayList';
 
 const TripDetail = () => {
   const { id } = useParams();
@@ -15,7 +15,7 @@ const TripDetail = () => {
   const detail = useSelector((state) => state.tripdetail);
 
 
-  console.log(detail?.trip?.data?.dateList)
+  // console.log(detail)
 
   useEffect(() => {
     dispatch(__getTripDetail(id));
@@ -34,9 +34,7 @@ const TripDetail = () => {
       <Container>
       <div>총 지출 금액: {detail?.trip?.data?.total}</div>
       </Container>
-      {detail?.trip?.data?.dateList?.map((date) => (
-            <DayDetail date={date} key={date.id}/>)
-            )}
+      <DayList/>
     </Layout>
     </>
   )

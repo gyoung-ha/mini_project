@@ -36,7 +36,7 @@ const TripAdd = () => {
 
     dispatch(__AddTrip(TripData));
 
-    navigate("/")
+    navigate("/tripdetail/:")
     
     }
 

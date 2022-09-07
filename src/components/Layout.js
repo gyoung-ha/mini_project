@@ -14,7 +14,7 @@ export default Layout;
 
 const StLayout = styled.div`
   max-width: 1200px;
-  min-width: 800px;
+  min-width: 400px;
   margin: 0 auto;
   background-color: white;
   height: 100vw;

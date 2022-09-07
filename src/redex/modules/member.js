@@ -36,9 +36,9 @@ export const __Login = createAsyncThunk(
               alert(data.data.error.message)
               else alert(data.data.data)
           // navigate("/")
-          return thunkAPI.fulfillWithValue(data.data);
+          // return thunkAPI.fulfillWithValue(data.data);
       } catch (error) {
-        return thunkAPI.rejectWithValue(error);
+        // return thunkAPI.rejectWithValue(error);
       }
 });
 

@@ -26,7 +26,7 @@ const FormLogin = () => {
         return;
     } 
         dispatch(__Login(LoginData));
-        navigate("/")
+        navigate("/");
 
     }
 

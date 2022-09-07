@@ -4,22 +4,22 @@ import Layout from '../components/Layout'
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { createCost } from "../redex/modules/cost"
-// import nextId from "react-id-generator";
+import { __AddCost } from "../redex/modules/cost"
 import Button from "../elem/Button";
 import Input from "../elem/Input";
 import Header from "../components/Header";
+import { useParams } from "react-router-dom";
 
 
 const CostAdd = () => {
-  // const costId = nextId();
-  // const { id } = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [content, setcontent] = useState();
   const [pay, setpay] = useState();
   
   const costDb = {
+    dateId: {id},
     content: content,
     pay: pay,
   }
@@ -28,8 +28,8 @@ const CostAdd = () => {
     event.preventDefault();
     if (content.trim() === "" || pay.trim() === "") return alert('항목을 입력하세요.'); 
     
-    dispatch(createCost(costDb))
-      navigate("/tripDetail")
+    dispatch(__AddCost(costDb))
+      navigate(`/tripDetail/${id}`)
   }
 
   return (

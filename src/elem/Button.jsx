@@ -42,7 +42,7 @@ const StButton = styled.button`
         `;
       case "small":
         return css`
-          width: 50px;
+          width: 60px;
           height: 30px !important;
         `;
       default:

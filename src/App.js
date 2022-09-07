@@ -26,7 +26,7 @@ function App() {
         <Route path="/tripadd" element={<TripAdd />} />
         <Route path="/tripDetail/:id" element={<TripDetail />} />
         <Route path="/dayDetail" element={<DayDetail />} />
-        <Route path="/cost" element={<CostAdd />} />
+        <Route path="/cost/:id" element={<CostAdd />} />
         {/* <Route path="/cost/{dayId}" element={<Calculator />} /> */}
         <Route path="*" element={<div>404 error 없는페이지입니다</div>} />
       </Routes>

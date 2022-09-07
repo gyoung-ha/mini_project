@@ -33,9 +33,9 @@ export const __AddTrip = createAsyncThunk(
             } 
             });
             console.log(data)
-            return thunkAPI.fulfillWithValue(data.data);
+            // return thunkAPI.fulfillWithValue(data.data);
           } catch (error) {
-            return thunkAPI.rejectWithValue(error);
+            // return thunkAPI.rejectWithValue(error);
           }
     }
 );
@@ -82,17 +82,17 @@ export const trip = createSlice({
           state.isLoading = false; 
           state.error = action.payload;
         },
-        [__AddTrip.pending]: (state) => {
-          state.isLoading = true; 
-        },
-        [__AddTrip.fulfilled]: (state, action) => {
-          state.isLoading = false; 
-          state.trips = action.payload; 
-        },
-        [__AddTrip.rejected]: (state, action) => {
-          state.isLoading = false; 
-          state.error = action.payload;
-      }
+      //   [__AddTrip.pending]: (state) => {
+      //     state.isLoading = true; 
+      //   },
+      //   [__AddTrip.fulfilled]: (state, action) => {
+      //     state.isLoading = false; 
+      //     state.trips = action.payload; 
+      //   },
+      //   [__AddTrip.rejected]: (state, action) => {
+      //     state.isLoading = false; 
+      //     state.error = action.payload;
+      // }
 }
 });
 

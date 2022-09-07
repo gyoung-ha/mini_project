@@ -19,18 +19,11 @@ const TripCard = ({trip}) => {
 export default TripCard;
 
 const Container = styled.div`
-    border: 1px solid #DCEDC8;
-    width: 95%;
-    min-width: 600px;
-    height: 100px;
-    margin: 1em auto;
-    border-radius: 8px;
-    background-color: white;
-    :hover {
-        background-color: #F1F8E9;
-        cursor: pointer;
-        box-shadow: 2px 2px 1px #AED581;
-    }
+            border: 1px solid #758BFD;
+            padding: 30px;
+            margin: 20px;
+            :hover {
+              box-shadow: rgba(0, 0, 0, 0.5) 1px 1px 1.5px;}
 `
 
 const Title = styled.div`

@@ -25,7 +25,7 @@ const TripList = () => {
         <>
         <Button 
         size="medium"
-        onClick={() => { navigate("/tripadd");}}>글쓰기</Button>
+        onClick={() => { navigate("/tripadd"); }}>글쓰기</Button>
         {trips?.trips?.data?.map((trip) => (
             <TripCard trip={trip} key={trip.id}/>)
             )}
