@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import styled from 'styled-components'
 import Layout from '../components/Layout'
 import "./style.css";
+import Header from "../components/Header";
 
 const TripAdd = () => {
   
   return (
+    <>
+    <Header/>
     <Layout>
       <Container>
         <div className ="wrap">
@@ -45,7 +48,8 @@ const TripAdd = () => {
 
          
       </Container>
-    </Layout> 
+    </Layout>
+    </> 
   )
 }
 

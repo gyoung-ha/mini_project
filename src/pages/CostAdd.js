@@ -8,6 +8,7 @@ import { createCost } from "../redex/modules/cost"
 // import nextId from "react-id-generator";
 import Button from "../elem/Button";
 import Input from "../elem/Input";
+import Header from "../components/Header";
 
 
 const CostAdd = () => {
@@ -32,6 +33,8 @@ const CostAdd = () => {
   }
 
   return (
+    <>
+    <Header/>
     <Layout>
     <div>지출내역 입력하기</div>
     <div>지출 항목</div>
@@ -52,6 +55,7 @@ const CostAdd = () => {
      
     <Button size="large" onClick={submit}>등록하기</Button> 
     </Layout>
+    </>
   )
 }
 

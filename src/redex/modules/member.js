@@ -25,10 +25,13 @@ export const __Login = createAsyncThunk(
   "member/login", 
   async (payload, thunkAPI) => {
       try {
-          const data = await axios.post(`${API_URL}/member/login`, payload);
-          localStorage.setItem("token", data.headers.authorization)
-          // console.log(data)
-          return thunkAPI.fulfillWithValue(data.data);
+          const data = await axios.post(`${API_URL}/member/login`, payload)
+          .then( response => {
+            const { accessToken } = data.headers.authorization;
+            axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;})
+          // localStorage.setItem("accessToken", data.headers.authorization)
+          return 
+            thunkAPI.fulfillWithValue(data.data);
       } catch (error) {
         if (error.response.success === false) {
           alert(`${error.response.errorMessage}`);

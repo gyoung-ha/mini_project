@@ -2,12 +2,15 @@ import React from 'react'
 import Layout from "../components/Layout";
 import styled from 'styled-components'
 import { useNavigate } from "react-router-dom";
+import Header from "../components/Header";
 
 
 const Main = () => {
   const nagivate = useNavigate();
   
-  return (
+  return ( 
+    <>
+  <Header/>
     <Layout>
       <div>여행리스트</div>
       <Container>
@@ -16,7 +19,8 @@ const Main = () => {
           <div>기간</div>
         </BoxStyle>
       </Container>
-    </Layout> 
+    </Layout>
+    </>
   )
 }
 
