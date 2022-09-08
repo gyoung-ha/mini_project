@@ -9,9 +9,9 @@ const DayDetail = ({date}) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const datedetail = useSelector((state) => state.date);
+    // const datedetail = useSelector((state) => state.date);
 
-    console.log(datedetail)
+    // console.log(datedetail)
 
     useEffect(() => {
         dispatch(__getDate(date.id));
@@ -25,10 +25,16 @@ const DayDetail = ({date}) => {
         size="small"
         onClick={() => { navigate(`/cost/${date.id}`); }}>지출등록</Button>
             <div>일 지출 금액: {date.subTotal}</div>
-            <div>지출내역</div>
-            {/* {datedetail?.date?.data?.costList?.map((date) => (
-            <Container date={date} key={date.id} />) )} */}
+            {/* <div>지출내역: {date.costList}</div> */}
+            {/* <div>{datedetail?.date?.data?.costList.}</div>  */}
 
+            {date.costList?.map((it) => ( 
+                 <CostBox>
+                     <div>지출내역: {it.content}</div>
+                     <div>지출금액: {it.pay}</div>
+                 </CostBox>
+                 ))}
+            
         </Container>
         </>
     )
@@ -38,6 +44,12 @@ const DayDetail = ({date}) => {
 export default DayDetail;
 
 const Container = styled.div`
+            border: 1px solid #758BFD;
+            padding: 30px;
+            margin: 20px;
+`
+
+const CostBox = styled.div`
             border: 1px solid #758BFD;
             padding: 30px;
             margin: 20px;
