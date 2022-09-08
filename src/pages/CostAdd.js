@@ -19,7 +19,7 @@ const CostAdd = () => {
   const [pay, setpay] = useState();
   
   const costDb = {
-    dateId: {id},
+    dateId: id,
     content: content,
     pay: pay,
   }
@@ -29,7 +29,7 @@ const CostAdd = () => {
     if (content.trim() === "" || pay.trim() === "") return alert('항목을 입력하세요.'); 
     
     dispatch(__AddCost(costDb))
-      navigate(`/tripDetail/${id}`)
+      navigate(-1)
   }
 
   return (

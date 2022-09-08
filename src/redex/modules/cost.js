@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const API_URL = 'http://3.39.254.156/';
+const API_URL = 'http://3.39.254.156';
 
 export const __AddCost = createAsyncThunk(
     "costs/addcost",

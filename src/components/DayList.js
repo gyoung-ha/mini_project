@@ -13,7 +13,7 @@ const DayList = () => {
 
     const dates = useSelector((state) => state.datelist);
 
-    // console.log(dates)
+    console.log(dates)
 
     useEffect(() => {
         dispatch(__getDates(id));

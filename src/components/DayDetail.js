@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 
 const DayDetail = ({date}) => {
     const navigate = useNavigate();
-    const { id } = useParams();
+    // const { id } = useParams();
     
   console.log(date)
 
@@ -15,7 +15,7 @@ const DayDetail = ({date}) => {
         <Container>
         <Button 
         size="small"
-        onClick={() => { navigate(`/cost/${id}`); }}>지출등록</Button>
+        onClick={() => { navigate(`/cost/${date.id}`); }}>지출등록</Button>
             <div>일 지출 금액: {date.subTotal}</div>
             <div>지출내역</div>
         </Container>
