@@ -1,14 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import styled from 'styled-components';
 import Button from "../elem/Button";
-import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { __getDate } from '../redex/modules/daydetail';
 
 const DayDetail = ({date}) => {
     const navigate = useNavigate();
-    // const { id } = useParams();
-    
-  console.log(date)
+    const dispatch = useDispatch();
+
+    const datedetail = useSelector((state) => state.date);
+
+    console.log(datedetail)
+
+    useEffect(() => {
+        dispatch(__getDate(date.id));
+    }, [dispatch])
+
 
     return (
         <>
@@ -18,6 +26,9 @@ const DayDetail = ({date}) => {
         onClick={() => { navigate(`/cost/${date.id}`); }}>지출등록</Button>
             <div>일 지출 금액: {date.subTotal}</div>
             <div>지출내역</div>
+            {/* {datedetail?.date?.data?.costList?.map((date) => (
+            <Container date={date} key={date.id} />) )} */}
+
         </Container>
         </>
     )

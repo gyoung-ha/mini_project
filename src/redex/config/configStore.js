@@ -4,6 +4,7 @@ import costs from "../modules/cost"
 import trip from "../modules/trip";
 import tripdetail from "../modules/tripdetail";
 import datelist from "../modules/date"
+import date from "../modules/daydetail";
 
 
 const store = configureStore({
@@ -13,6 +14,7 @@ const store = configureStore({
         trip: trip.reducer,
         tripdetail,
         datelist,
+        date,
     },
         
     middleware: (getDefaultMiddleware) => 
