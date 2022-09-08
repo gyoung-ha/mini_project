@@ -1,14 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux/';
+import { logout, __Logout } from '../redex/modules/member'
 
 
 const Header = () => {
-  const nagivate = useNavigate();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+
   return (
     <HdContainer>
-      <HdButton onClick={() => {nagivate("/")}}>여행가계</HdButton>
-      <button onClick={() => {nagivate("/member/login")}}>Logout</button>
+      <HdButton onClick={() => {navigate("/")}}>여행가계</HdButton>
+      <StButton onClick={() => { dispatch(logout()); dispatch(__Logout()); navigate("/login")}}>로그아웃</StButton>
     </HdContainer>
   )
 }
@@ -25,8 +30,20 @@ const HdContainer = styled.div`
 `
 const HdButton = styled.button`
     margin: 20px;
-    width: 45px;
-    height: 45px;
+    width: 48px;
+    height: 48px;
+    border: none;
+    background-color: #F1F2F6;
+    color: #4E52BE;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    `
+
+const StButton = styled.button`
+    margin: 20px;
+    width: 60px;
+    height: 30px;
     border: none;
     background-color: #F1F2F6;
     color: #4E52BE;
